@@ -1,4 +1,3 @@
-#Syntactic search and categoric filters applied to MusicBrainz API info
 import musicbrainzngs as music_client
 
 #User-Agent is needed for any request
