@@ -1,12 +1,12 @@
 #Syntactic search and categoric filters applied to MusicBrainz API info
-import musicbrainzngs
+import musicbrainzngs as music_client
 
 #User-Agent is needed for any request
-musicbrainzngs.set_useragent("EmmaTesting", 1.0, "emmatesting@test.com")
+music_client.set_useragent("EmmaTesting", 1.0, "emmatesting@test.com")
 
 #Generic query
 #search_artists returns dict with two attributes: artist-list and artist-count
-result = musicbrainzngs.search_artists(query="Sodom")
+result = music_client.search_artists(query="Sodom")
 
 #artist list contains each artist with the whole stored info in the MusicBrainz API
 for artist in result['artist-list']:
@@ -18,7 +18,7 @@ for artist in result['artist-list']:
         print(f"Found {artist_type} named '{name}' from {area.get("name")}")
 
 #Strict query with limits, search_release_groups get "albums"
-result_2 = musicbrainzngs.search_release_groups(query="888 Reencarnacion", strict=True, limit=5)
+result_2 = music_client.search_release_groups(query="888 Reencarnacion", strict=True, limit=5)
 
 for album in result_2['release-group-list']:
     title = album.get("title")
